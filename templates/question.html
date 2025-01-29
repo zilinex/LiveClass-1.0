@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+    Author: Mehdi Adibi
+    Date Created: 2025-01-28
+    Last Modified: -
+    Version: 1.0
+
+    Description:
+    - This HTML file serves as the template for teachers or administrators to display questions to students/participants.
+    - The file includes functionality to handle and submit multiple-choice questions.
+    - It allows for interaction with the Flask server, where students can submit their answers and receive real-time feedback.
+    - The design is responsive, with options stacked vertically and adaptive to different screen sizes.
+
+    Usage:
+    - `question.html`: Displays the question for the teacher/administrator to input, edit, or manage questions for student participation.
+
+    Notes:
+    - Ensure the accompanying JavaScript and CSS files are properly linked to the HTML for proper functionality.
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Mehdi Adibi">
+    <title>LiveClass: {{ question }}</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">	
+	<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+	
+</head>
+
+<body onload="fetchResponses()">
+
+    <!-- Banner with Logo -->
+    <div class="banner">
+        <img src="{{ url_for('static', filename='images/neurodigit.png') }}" alt="Neurodigit">
+        <h1>LiveClass: Interactive Class Hub</h1>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+		<div class="question">
+			<h2>{{ question }}</h2>
+		</div>
+        
+
+		<div class="content-wrapper">
+			<!-- Stats Display -->
+			
+			<div class="stats">
+				<!--<h3>Current Statistics:</h3> -->
+				<ul id='statList'>
+					{% for option in options %}
+						{% set option_responses = responses[option] %}
+						<li>
+							{{ option }}: {{ option_responses }} responses 
+							({{ response_percentages[option]|round(0) }}%)
+						</li>
+					{% endfor %}
+				</ul>
+				<p><strong>Total Responses:</strong> <span id="total_responses">{{ total_responses }}</span></p>
+				<p><strong>Total Participants:</strong> <span id="client-count">{{ client_count }}</span></p>
+			</div>
+			
+			<!-- QR Code -->
+			<div class='qrcode'>
+				<p>Scan to participate:</p>
+				<img src="data:image/png;base64,{{ qr_code_img }}" alt="QR Code" />
+			</div>
+		</div>
+	
+		<!-- Buttons -->
+        <div class="button-wrapper">
+            <button id="saveStats" class="buttons">Save Stats</button>
+            <!-- <button id="next" class="buttons">Next &gt;</button> -->
+			<button id="next" class="buttons" {% if prev_disabled %}disabled{% endif %} onclick="window.location.href='/back'">&lt; Back</button>
+			<button id="back" class="buttons" {% if next_disabled %}disabled{% endif %} onclick="window.location.href='/next'">Next &gt;</button>
+        </div>
+		
+	</div>
+
+	
+
+
+    <!-- Footer -->
+    <div class="footer">
+		<p>LiveClass: Interactive Class Hub.</p>
+        <p>&copy; 2025 Neurodigit. All Rights Reserved.</p>
+    </div>
+
+</body>
+</html>

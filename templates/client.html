@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+    Author: Mehdi Adibi
+    Date Created: 2025-01-28
+    Last Modified: -
+    Version: 1.0
+
+    Description:
+    - This HTML file is used to display interactive questions to the students in a user-friendly interface, and get their answers.
+    - The file includes functionality for displaying multiple-choice options and submitting answers via the Flask server.
+    - The interface adapts to both mobile and desktop devices with options stacked vertically.
+    - The selected button is highlighted, and all buttons become inactive after the user selects an answer.
+
+    Usage:
+    - `client.html`: Displays the question and options for the student to choose from.
+    
+    Notes:
+    - Ensure the accompanying JavaScript and CSS files are correctly linked to enable full functionality.
+    - The buttons will disable upon selection, with the selected answer visually indicated.
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Mehdi Adibi">
+    <title>LiveClass: {{ question }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/client.css') }}">
+</head>
+<body>
+    <!-- Banner and Logo Section -->
+    <div class="banner">
+        <img src="{{ url_for('static', filename='images/neurodigit.png') }}" alt="Neurodigit" class="logo">
+    </div>
+
+    <!-- Question Section -->
+    <div class="question-container">
+        <h1>{{ question }}</h1>
+    </div>
+    
+    <div class="options">
+        {% for option in options %}
+            <button class="buttons" id="btn-{{ option }}" onclick="submitAnswer('{{ option }}')">{{ option }}</button>
+        {% endfor %}
+    </div>
+
+	<script src="{{ url_for('static', filename='js/client.js') }}"></script>
+</body>
+</html>

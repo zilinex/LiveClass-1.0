@@ -1,0 +1,125 @@
+/* 
+    client.css - Styles for the Client-Side Interaction (Student View)
+    Description:
+    This CSS file styles the client-side page for interactive classrooms. It includes:
+    - A black banner with the logo aligned to the left.
+    - Vertically stacked buttons (options) that are styled similarly to question.html.
+    - Button hover and disabled states are styled for better user interaction.
+
+    Author: Mehdi Adibi
+    Date: 2025-01-29
+    Version: 1.0
+*/
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.banner {
+    background-color: #000000; /* Black color for the banner */
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    max-width: 150px;  /* Adjusted for logo size */
+    height: auto;
+    margin-left: 10px; /* Aligned logo to the left */
+}
+
+.question-container {
+    margin-top: 30px;
+    font-size: 20px;  /* Reduced font size for the question */
+    font-weight: bold;
+    color: #333;  /* Dark grey text for readability */
+    text-align: center;  /* Center-aligned for mobile */
+}
+
+.options {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;  /* Ensures the options are stacked vertically */
+    align-items: center;  /* Center align buttons for mobile */
+    justify-content: center;
+    gap: 5px;  /* Reduced gap between buttons */
+    width: 100%;  /* Take full width for better responsiveness */
+    max-width: 500px;  /* Optional: Limit width for large screens */
+}
+
+/* Button Styles */
+.buttons {
+    background-color: #ffffff;
+    border: 2px solid #000000; /* Black border for consistency */
+    color: #000000;  /* Black text */
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 5px 0;  /* Reduced margin between buttons */
+    width: 80%;  /* Adjust width for better responsiveness */
+    max-width: 300px;  /* Maximum width to avoid overly wide buttons */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Hover Effects */
+.buttons:hover {
+    font-weight: bold; /* Bold font on hover */
+    transform: scale(1.1); /* "Pop-out" effect */
+}
+
+/* Disabled button styles */
+.buttons:disabled {
+    background-color: #e3e3e3;  /* Light grey background */
+    color: #999999;  /* Darker grey text */
+    border-color: #999999;  /* Darker grey border */
+    cursor: not-allowed;
+}
+
+.buttons:disabled:hover {
+    background-color: #e3e3e3;  /* No hover change on disabled state */
+    color: #999999;
+    border-color: #999999;
+    transform: none;  /* Disable pop-out effect when disabled */
+    font-weight: normal;  /* Prevent font weight change on hover when disabled */
+}
+
+/* Selected button styles */
+.buttons.selected {
+    background-color: #999999;  /* Darker grey background */
+    color: #333333;  /* Dark grey text */
+    font-weight: bold;
+    border-color: #333333;  /* Dark grey border */
+}
+
+/* Disabled selected button style fix */
+.buttons.selected:disabled {
+    background-color: #b0b0b0;  /* Slightly lighter grey for selected disabled button */
+    color: #666666;  /* Darker grey text for disabled selected */
+    border-color: #666666;  /* Darker grey border for disabled selected */
+	font-weight: bold;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    /* On tablets and larger screens, align the question to the left and buttons with left margin */
+    .question-container {
+        text-align: left;
+        margin-left: 20px;
+    }
+    
+    .options {
+        align-items: flex-start; /* Left-aligned buttons */
+        margin-left: 20px;  /* Add margin for buttons on larger screens */
+        gap: 8px;  /* Slightly reduced gap between buttons */
+    }
+}

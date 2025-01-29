@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+    Author: Mehdi Adibi
+    Date: January 2025
+    Version: 1.0
+    Description: This is the README for the LiveClass project, an interactive classroom platform built with Flask. The platform allows real-time participation, question management, and statistics display for students. This platform is designed for educational settings such as classrooms, lectures, seminars, and also for research purposes like live data collection from large crowds.
+    -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mehdi Adibi">
+    <meta name="date" content="January 2025">
+    <meta name="version" content="1.0">
+    <meta name="description" content="LiveClass: An interactive classroom platform that allows real-time question/response sessions and is applicable in academic, seminar, and research settings.">
+    <title>LiveClass: Interactive Classroom Platform</title>
+	
+	<style>
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+	
+</head>
+<body>
+    <header>
+        <h1>LiveClass: Interactive Classroom Platform</h1>
+        <p><strong>Author:</strong> Mehdi Adibi</p>
+        <p><strong>Date:</strong> January 2025</p>
+        <p><strong>Version:</strong> 1.0</p>
+    </header>
+    
+    <section>
+        <h2>Overview</h2>
+        <p>LiveClass is an interactive classroom platform designed to enhance classroom engagement by enabling real-time question and answer sessions. It is not limited to traditional classroom settings but can be applied in a variety of academic environments including lectures, seminars, and even live data collection for research from large crowds. The platform allows teachers to present questions to students, track responses, and display real-time statistics. Students can participate by scanning a QR code and selecting responses. This platform is valuable for both educational purposes and research data collection, with applications in both small and large-scale environments.</p>
+    </section>
+    
+    <section>
+        <h2>Technologies Used</h2>
+        <ul>
+            <li><strong>Flask</strong> (Python web framework)</li>
+            <li><strong>Python</strong> (Programming Language)</li>
+            <li><strong>HTML</strong> (Frontend for displaying questions and responses)</li>
+            <li><strong>CSS</strong> (Styling the interface)</li>
+            <li><strong>JavaScript</strong> (Client-side functionality)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Folder Structure</h2>
+        <pre>
+InteractiveClassroom/
+│
+├── app.py                # Main Flask application file
+├── templates/            # Folder containing HTML templates
+│   ├── question.html     # Template for displaying questions and responses
+│   └── client.html       # Template for client-side (student) interaction
+├── static/               # Folder for static assets like images, CSS, and JS
+│   ├── css/              # CSS files
+│   │   └── client.css    # Main stylesheet (used in client.html)
+│   ├── js/               # JavaScript files 
+│   │   └── client.js     # Client-side scripts (used in client.html)
+│   └── images/           # Image files
+│       └── logo.png      # Logo image
+├── questions.json        # JSON file containing questions and answers
+└── README.md             # This file
+        </pre>
+    </section>
+
+    <section>
+        <h2>Installation Instructions</h2>
+        
+        <h3>1. Install Python</h3>
+        <p>Ensure you have Python 3.7+ installed on your system. If not, you can download and install it from <a href="https://www.python.org/downloads/" target="_blank">here</a>.</p>
+
+        <h3>2. Install Dependencies</h3>
+        <p>Run the following command to install the necessary dependencies:</p>
+        <pre>
+pip install flask
+        </pre>
+
+        <h3>3. Running the Application</h3>
+        <p>To run the app, use the following command syntax:</p>
+        <pre>
+python app.py <path_to_questions_json_file>
+        </pre>
+        <p>Example:</p>
+        <pre>
+python app.py questions.json
+        </pre>
+        <p>This will start the Flask web server and allow you to access the interactive classroom platform at <a href="http://127.0.0.1:5000/" target="_blank">http://127.0.0.1:5000/</a>.</p>
+
+        <h3>4. Create a questions.json File</h3>
+        <p>Your <code>questions.json</code> file should follow this structure:</p>
+        <pre>
+{
+  "questions": [
+    {
+      "question": "Do you find interactive classes beneficial?",
+      "options": ["Yes", "No"]
+    },
+    {
+      "question": "What is your preferred learning method?",
+      "options": ["Visual", "Auditory", "Kinesthetic"]
+    }
+  ]
+}
+        </pre>
+        <p>Each question should include:</p>
+        <ul>
+            <li>A <code>question</code> field for the text of the question.</li>
+            <li>An <code>options</code> array with the available answer choices.</li>
+        </ul>
+
+        <h4>Using Excel to Create the JSON File</h4>
+        <p>1. Create a table with two columns: one for the question and the other for the options.</p>
+        <p>2. Fill in the rows with your questions and their corresponding options.</p>
+        <p>3. Save the file as a <code>.csv</code> file.</p>
+        <p>4. Use an online tool like <a href="https://csvjson.com/csv2json" target="_blank">CSV to JSON Converter</a> to convert your <code>.csv</code> file into a <code>questions.json</code> file.</p>
+		<h5 style="text-align:center;">Excel Example for Questions and Options</h5>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Do you find interactive classes beneficial?</td>
+                <td>Yes, No</td>
+            </tr>
+            <tr>
+                <td>What is your preferred learning method?</td>
+                <td>Visual, Auditory, Kinesthetic</td>
+            </tr>
+            <tr>
+                <td>Do you prefer group work over individual tasks?</td>
+                <td>Yes, No</td>
+            </tr>
+        </tbody>
+    </table>
+	
+	
+        <h4>Using Google Sheets to Create the JSON File</h4>
+        <p>1. Create a Google Sheets document with two columns: one for the question and one for the options.</p>
+        <p>2. Fill in the rows with the questions and their corresponding options.</p>
+        <p>3. After entering all the questions and options, go to <strong>File &gt; Download</strong> and choose <strong>Comma-separated values (.csv)</strong> to download the sheet as a <code>.csv</code> file.</p>
+        <p>4. Use an online tool like <a href="https://csvjson.com/csv2json" target="_blank">CSV to JSON Converter</a> to convert your <code>.csv</code> file into a <code>questions.json</code> file.</p>
+
+        <h4>Using Text Editors to Create the JSON File</h4>
+        <p>1. Open your preferred text editor (Notepad, VS Code, Sublime Text, or any other code editor).</p>
+        <p>2. Create a JSON structure, starting with <code>{ "questions": [</code>. Add each question as an object with the <code>question</code> and <code>options</code> fields.</p>
+        <p>3. Save the file with the name <code>questions.json</code>.</p>
+        <p>Example:</p>
+        <pre>
+{
+  "questions": [
+    {
+      "question": "Do you find interactive classes beneficial?",
+      "options": ["Yes", "No"]
+    },
+    {
+      "question": "What is your preferred learning method?",
+      "options": ["Visual", "Auditory", "Kinesthetic"]
+    }
+  ]
+}
+        </pre>
+    </section>
+
+    <section>
+        <h2>Accessing the App from Other Devices (Windows Firewall)</h2>
+        <p>If the app is not accessible from other devices, it may be blocked by your Windows firewall. To fix this:</p>
+        <ol>
+            <li>Go to <strong>Control Panel > System and Security > Windows Defender Firewall > Advanced Settings</strong>.</li>
+            <li>Create an inbound rule to allow traffic on port 5000 (the default Flask port):</li>
+            <ul>
+                <li>In the <strong>Windows Firewall with Advanced Security</strong> window, select <strong>Inbound Rules</strong> on the left.</li>
+                <li>Click on <strong>New Rule</strong> in the right-hand menu.</li>
+                <li>Select <strong>Port</strong>, then click <strong>Next</strong>.</li>
+                <li>Choose <strong>TCP</strong> and enter <strong>5000</strong> in the <strong>Specific local ports</strong> field.</li>
+                <li>Click <strong>Next</strong>, and then select <strong>Allow the connection</strong>.</li>
+                <li>Click <strong>Next</strong> again and select the appropriate network types (Domain, Private, or Public).</li>
+                <li>Give the rule a name (e.g., "Flask App - Port 5000") and click <strong>Finish</strong>.</li>
+            </ul>
+        </ol

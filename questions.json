@@ -1,0 +1,14 @@
+[
+    {
+        "question": "Do you find interactive classes beneficial?",
+        "options": ["Yes", "No"]
+    },
+    {
+        "question": "Was this session helpful?",
+        "options": ["Yes", "No"]
+    },
+	{
+      "question": "What is your preferred learning method?",
+      "options": ["Visual", "Auditory", "Kinesthetic"]
+    }
+]
